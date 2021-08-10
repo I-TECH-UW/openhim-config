@@ -18,4 +18,4 @@ do
 done
 
 # Run the main container command.
-node ./load-openhim-config.js --apiUrl=$API_URL
+node ./load-openhim-config.js --apiUrl=$API_URL --password=$PASSWORD
