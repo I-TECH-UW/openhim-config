@@ -1,0 +1,15 @@
+{
+  "name": "openhim-config",
+  "version": "0.0.0",
+  "description": "Default Configuration loaded for OpenHIM CI Instances",
+  "main": "load-openhim-config.js",
+  "repository": "https://github.com/I-TECH-UW/openhim-config.git",
+  "author": "Piotr Mankowski <pmanko@uw.edu>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "got": "^11.8.2",
+    "yargs": "^17.1.0"
+  }
+}
