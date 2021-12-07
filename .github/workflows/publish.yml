@@ -39,7 +39,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Boot up containers
-        run: docker-compose up openhim-core mongo-db
+        run: docker-compose up -d openhim-core mongo-db
 
       - name: Load test config
         run: docker-compose up --exit-code-from openhim-config openhim-config
