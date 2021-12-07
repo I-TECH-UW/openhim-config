@@ -13,6 +13,7 @@ RUN chmod u+x docker-entrypoint.sh load-openhim-config.js
 RUN yarn
 
 ENV API_URL='https://openhim-core:8080'
-ENV PASSWORD='openhim-password'
+ENV INITIAL_PW='openhim-password'
+ENV ADMIN_PW='openhim'
 
 ENTRYPOINT ./docker-entrypoint.sh
