@@ -1,6 +1,6 @@
 {
   "name": "openhim-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Default Configuration loaded for OpenHIM CI Instances",
   "main": "load-openhim-config.js",
   "repository": "https://github.com/I-TECH-UW/openhim-config.git",

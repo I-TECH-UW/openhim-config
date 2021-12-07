@@ -1,10 +1,13 @@
 const crypto = require('crypto')
+const got = require('got');
 
 // Generate the relevant auth headers
-export const genAuthSettings = async (options) => {
+exports.genAuthSettings = async (options) => {
   let urn = new URL(options.url);
   
-  let authResponse = await got.get(`${urn.protocol}//${urn.host}/authenticate/${options.user}`, { https: { rejectUnauthorized: options.rejectUnauthorized } }).json()
+  console.log("Generating Auth Settings:"+JSON.stringify(options))
+
+  let authResponse = await got.get(`${urn.protocol}//${urn.host}/authenticate/${options.user}`, { https: { rejectUnauthorized: false, requestCert: false } }).json()
   const salt = authResponse.salt
 
   // create passhash
@@ -20,10 +23,11 @@ export const genAuthSettings = async (options) => {
   }
 }
 
-export const getAuthHeader = async(url, user, pw, rua) => {
+exports.getAuthHeader = async(url, user, pw, rua) => {
   let urn = new URL(url);
 
-  let authResponse = await got.get(`${urn.protocol}//${urn.host}/authenticate/${user}`, { https: { rejectUnauthorized: rua } }).json()
+  console.log("Getting auth header")
+  let authResponse = await got.get(`${urn.protocol}//${urn.host}/authenticate/${user}`, { https: { rejectUnauthorized: false, agent: false, requestCert: true } }).json()
   const salt = authResponse.salt;
   
   let shasum = crypto.createHash('sha512');
